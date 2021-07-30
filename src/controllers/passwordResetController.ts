@@ -13,7 +13,10 @@ export const requestPasswordResetController = async (
   res: Response
 ): Promise<Response> => {
   try {
-    const resp = await requestPasswordReset(req.body.email.toLowerCase());
+    const resp = await requestPasswordReset(
+      req.body.email.toLowerCase(),
+      req.body.client_url
+    );
     if (!resp) {
       response.setError(400, resp);
       return response.send(res);

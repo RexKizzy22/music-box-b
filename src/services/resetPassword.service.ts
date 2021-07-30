@@ -3,7 +3,10 @@ import jwt from "jsonwebtoken";
 import { UserModel } from "../models/userModel";
 import sendEmail from "../utils/mail/sendEmail";
 
-export const requestPasswordReset = async (email: string): Promise<any> => {
+export const requestPasswordReset = async (
+  email: string,
+  url: string
+): Promise<any> => {
   // Check if the user exists
   const user = await UserModel.findOne({ email });
   if (!user) throw new Error("User with this email does not exist");
@@ -21,7 +24,7 @@ export const requestPasswordReset = async (email: string): Promise<any> => {
    * Link to be implemented by frontend
    * ClientURL to be frontend route
    */
-  const link = `${process.env.CLIENT_URL}/resetPassword?token=${newToken}`;
+  const link = `${url}/token=${newToken}`;
 
   sendEmail(
     user.email,
