@@ -21,6 +21,7 @@ const userSchema = new Schema<IUser>(
   },
   { timestamps: true }
 );
+
 userSchema.methods.toJSON = function () {
   // eslint-disable-next-line @typescript-eslint/no-this-alias
   const user = this;
@@ -30,6 +31,7 @@ userSchema.methods.toJSON = function () {
 
   return userObject;
 };
+
 // hash password
 userSchema.pre("save", async function (next) {
   try {
@@ -40,8 +42,10 @@ userSchema.pre("save", async function (next) {
     // eslint-disable-next-line no-console
   }
 });
+
 // verify password
 userSchema.methods.isPasswordMatch = async function (enteredPassword) {
   return bcrypt.compare(enteredPassword, this.password);
 };
+
 export const UserModel = model("User", userSchema);

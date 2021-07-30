@@ -20,7 +20,7 @@ export async function changePassword(
     // find user by the request id
     const user = await UserModel.findById(req.params.id);
 
-    // if no suer found in database, return error
+    // if no user found in database, return error
     if (!user) {
       responseStatus.setError(404, "user not found");
       return responseStatus.send(res);
