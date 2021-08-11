@@ -1,26 +1,16 @@
-# MUSIC-BOX APP
+# MUSIC-BOX SERVER APP
 
-Search, Play and listen to music from all over the world
+Search, Play and listen to music from all over the world :musical_note: :musical_note:
 
-## Project setup
-```
-yarn 
-```
+**Music Box Server App** is a backend application that implements the server, model and 
+authentication functionalities that powers the **Music Box Client App**
 
-### Compiles and hot-reloads for development
-```
-yarn start:dev
-```
-
-### Compiles and build for production
-```
-yarn compile
-```
-
-### Run tests
-```
-yarn test
-```
-
-### Customize configuration
-see .env-example for environment variables
+Technologies used include:
+- Typescript
+- Node.js
+- Express.js
+- MongoDB  
+- Passport.js
+- JWT
+- Jest
+- Supertest
